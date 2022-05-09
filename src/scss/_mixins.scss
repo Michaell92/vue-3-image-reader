@@ -1,0 +1,111 @@
+// VARIABLES
+$font-stack: 'Hind Vadodara', sans-serif;
+$font-title: 'Titillium Web', sans-serif;
+$font-large: 'Exo 2', sans-serif;
+$font-color: #2c2929;
+$light-color: #eee;
+$main-color: #0066ac;
+$main-color-light: #008dc5;
+$main-button: rgb(135, 81, 164);
+$purple: rgb(0, 93, 143);
+
+//centering with flex
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//centering absolute positioned element
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  padding: 0 20px;
+}
+
+// BUTTON STYLING
+.button-basic {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  @include flex-center;
+  font-size: 1rem;
+}
+
+.button-primary {
+  @extend .button-basic;
+  color: $light-color;
+  background-color: $main-button;
+}
+
+.button-secondary {
+  @extend .button-basic;
+  background-color: darken($light-color, 5%);
+}
+
+.button-primary:hover {
+  background-color: lighten($main-button, 10%);
+}
+
+.button-secondary:hover {
+  background-color: darken($light-color, 10%);
+}
+
+/* ----------------------------------------------------------------
+	Breakpoints - vars
+-----------------------------------------------------------------*/
+$screen-sm-min: 640px;
+$screen-md-min: 768px;
+$screen-lg-min: 1024px;
+$screen-xl-min: 1280px;
+$screen-xxl-min: 1536px;
+$screen-xxxl-min: 1920px;
+$screen-xxxxl-min: 2200px;
+
+/* ----------------------------------------------------------------
+	Breakpoints - mixins
+    for different variables, include as:
+    @include screen-lg {
+    foo: bar;
+    }
+-----------------------------------------------------------------*/
+@mixin screen-sm {
+  @media screen and (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+@mixin screen-md {
+  @media screen and (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+@mixin screen-lg {
+  @media screen and (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+@mixin screen-xl {
+  @media screen and (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+@mixin screen-xxl {
+  @media screen and (min-width: #{$screen-xxl-min}) {
+    @content;
+  }
+}
+@mixin screen-xxxl {
+  @media screen and (min-width: #{$screen-xxxl-min}) {
+    @content;
+  }
+}
+@mixin screen-xxxxl {
+  @media screen and (min-width: #{$screen-xxxxl-min}) {
+    @content;
+  }
+}
