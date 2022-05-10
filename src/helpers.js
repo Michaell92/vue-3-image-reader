@@ -2,4 +2,8 @@ const copyToClipboard = (text) => {
   navigator.clipboard?.writeText && navigator.clipboard.writeText(text);
 };
 
-export { copyToClipboard };
+const filterData = (data, regEx) => {
+  return data.replace(regEx, '');
+};
+
+export { copyToClipboard, filterData };

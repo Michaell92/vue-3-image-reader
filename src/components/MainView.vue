@@ -49,7 +49,6 @@ prepareWorker()
     </div>
     <button class="button-primary process" @click="extract">Get Data</button>
     <image-text is="ImageText" :data=imageData></image-text>
-    <img :src='imageURL' alt="">
 </template>
 
 
