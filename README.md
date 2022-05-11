@@ -1,5 +1,7 @@
 # vue-3-image-reader
 
+Made with tesseract.js
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
