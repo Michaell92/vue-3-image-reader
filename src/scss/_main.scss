@@ -144,7 +144,55 @@ main {
   border-radius: 10px;
 }
 
-/* we will explain what these classes do next! */
+.loader {
+  display: none;
+  @include absolute-center;
+  border: 5px rgb(116, 116, 219);
+  border-style: solid solid dotted dotted;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  animation: spin 2s linear infinite;
+}
+
+.loader:after {
+  content: '';
+  position: absolute;
+  border: 3px rgb(255, 0, 0);
+  border-style: solid solid dotted dotted;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  animation: spinReverse 0.7s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinReverse {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.showLoader {
+  display: block;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.2s ease;

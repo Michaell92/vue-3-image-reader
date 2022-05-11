@@ -7,6 +7,7 @@ import { ref } from 'vue';
 const imgInfo = ref('No file selected')
 let imageURL = ref(null)
 let imageData = ref(null)
+let finishedLoading = ref(false)
 
 // Get worker
 const worker = createWorker()
@@ -23,9 +24,11 @@ function getImage(e) {
 // Extract data from image
 async function extract() {
     if (isReady && imageURL.value) {
+        finishedLoading.value = true
         const { data: { text } } = await worker.recognize(imageURL.value)
 
         imageData.value = text;
+        finishedLoading.value = false
     }
 }
 
@@ -41,6 +44,8 @@ prepareWorker()
 </script>
 
 <template>
+    <div :class="['loader', { showLoader: finishedLoading }]">
+    </div>
     <h2 class='title'>Extract data from Images</h2>
     <div>
         <input type="file" id="file" @change="getImage" hidden>

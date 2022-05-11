@@ -25,9 +25,6 @@ function filter(e) {
 function filterResults(id) {
     let regEx = ''
     switch (id) {
-        case '1':
-            filteredData.value = props.data
-            break;
         case '2':
             regEx = /[0-9]+/g
             filteredData.value = filterData(props.data, regEx)
@@ -35,7 +32,10 @@ function filterResults(id) {
         case '3':
             regEx = /[A-Za-z]+/g
             filteredData.value = filterData(props.data, regEx)
-
+            break;
+        default:
+            filteredData.value = props.data
+            break;
     }
 }
 
